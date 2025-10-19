@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="kk">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>4. Циклдар: for және while</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body class="bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary"><div class="container"><a class="navbar-brand" href="../index.html">PythonTutor.KZ</a></div></nav>
+<main class="container py-4">
+  <h1 class="mb-4 text-center">Сабақ 4: Шартты операторлар (if/else)</h1>
+
+    <div class="card mb-4">
+      <div class="card-header bg-primary text-white">Теория</div>
+      <div class="card-body">
+        <p><strong>Шартты операторлар</strong> белгілі бір шартқа байланысты әртүрлі әрекет орындауға мүмкіндік береді.</p>
+
+        <p>Python тілінде негізгі шартты операторлар:</p>
+        <ul>
+          <li><code>if</code> — егер шарт орындалса</li>
+          <li><code>else</code> — әйтпесе</li>
+          <li><code>elif</code> — әйтпесе егер (қосымша шарт)</li>
+        </ul>
+
+        <h5 class="mt-4">Мысал:</h5>
+        <pre class="bg-dark text-white p-3 rounded"><code>age = 18
+
+if age >= 18:
+    print("Сіз кәмелет жасына толдыңыз")
+else:
+    print("Сіз әлі кәмелет жасына толмадыңыз")</code></pre>
+
+        <p>Бұл бағдарлама адамның жасына қарай хабарлама шығарады.</p>
+
+        <h5 class="mt-4">Қосымша мысал (elif):</h5>
+        <pre class="bg-dark text-white p-3 rounded"><code>grade = 85
+
+if grade >= 90:
+    print("Өте жақсы")
+elif grade >= 70:
+    print("Жақсы")
+else:
+    print("Тырысу қажет")</code></pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header bg-success text-white">Жаттығу</div>
+      <div class="card-body">
+        <p>Пайдаланушы енгізген сан 0-ден үлкен, кіші немесе тең екенін тексеретін бағдарлама жазыңыз.</p>
+      </div>
+    </div>
+    <div class="mt-2">
+      <a href="../editor.html" class="btn btn-primary" onclick="localStorage.setItem('lesson_code', document.getElementById('sample').innerText)">Редакторда ашу</a>
+      <a href="../lessons.html" class="btn btn-link">Артқа</a>
+    </div>
+  </section>
+</main>
+</body>
+</html>

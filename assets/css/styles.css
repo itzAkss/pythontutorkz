@@ -1,0 +1,10 @@
+.bg-light { --bs-body-bg: #f8fafc; }
+textarea { resize: vertical; }
+#currentLine { font-family: monospace; }
+#varsBody td { max-width: 200px; word-break: break-word; }
+/* Simple aesthetic touches */
+.card { border-radius: 12px; }
+video {
+  display: block;
+  margin: 0 auto;
+}

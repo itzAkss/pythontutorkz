@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="kk">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>7. Сөздіктер (dict) және жиындар (set)</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body class="bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary"><div class="container"><a class="navbar-brand" href="../index.html">PythonTutor.KZ</a></div></nav>
+<main class="container py-4">
+  <h1 class="mb-4 text-center">Сабақ 7: Функциялар (def)</h1>
+
+    <div class="card mb-4">
+      <div class="card-header bg-primary text-white">Теория</div>
+      <div class="card-body">
+        <p><strong>Функция</strong> — белгілі бір әрекетті орындау үшін жазылған код блогы. 
+        Функция кодты қайта-қайта жазбай, бірнеше рет қолдануға мүмкіндік береді.</p>
+
+        <p>Функцияны анықтау үшін <code>def</code> кілт сөзі қолданылады.</p>
+
+        <h5 class="mt-4">Мысал:</h5>
+        <pre class="bg-dark text-white p-3 rounded"><code>def sәлемдесу():
+    print("Сәлем, оқушы!")
+
+sәлемдесу()  # Функцияны шақыру</code></pre>
+
+        <p>Бұл бағдарламада <code>sәлемдесу</code> атты функция жазылған және ол хабарлама шығарады.</p>
+
+        <h5 class="mt-4">Параметрлері бар функция:</h5>
+        <pre class="bg-dark text-white p-3 rounded"><code>def сәлем_бер(аты):
+    print("Сәлем,", аты)
+
+сәлем_бер("Айгерім")
+сәлем_бер("Ернар")</code></pre>
+
+        <p>Бұл функцияға әртүрлі аттарды беріп шақыруға болады.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header bg-success text-white">Жаттығу</div>
+      <div class="card-body">
+        <p>Пайдаланушының атын параметр ретінде қабылдап, оған сәлемдесу хабарламасын шығаратын функция жазыңыз.</p>
+      </div>
+    </div>
+    <div class="mt-2">
+      <a href="../editor.html" class="btn btn-primary" onclick="localStorage.setItem('lesson_code', document.getElementById('sample').innerText)">Редакторда ашу</a>
+      <a href="../lessons.html" class="btn btn-link">Артқа</a>
+    </div>
+  </section>
+</main>
+</body>
+</html>
