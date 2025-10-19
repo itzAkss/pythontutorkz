@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python курсы – Тест</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { background: #f8f9fa; }
+    .quiz-card { margin-bottom: 20px; }
+    .question { font-weight: 600; margin-bottom: 10px; }
+  </style>
+</head>
+<body>
+  <!-- Навигация -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">PythonTutor.KZ</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Басты бет</a></li>
+                    <li class="nav-item"><a class="nav-link" href="lessons.html">Сабақтар</a></li>
+<li class="nav-item"><a class="nav-link" href="editor.html">Онлайн-редактор</a></li>
+          <li class="nav-item"><a class="nav-link active" href="test.html">Тест</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Контент -->
+  <div class="container my-5">
+    <h2 class="mb-4 text-center">Қорытынды тест (20 сұрақ)</h2>
+    <div id="quiz-container"></div>
+    <div class="text-center mt-4">
+      <button class="btn btn-primary" onclick="submitQuiz()">Нәтижені көру</button>
+    </div>
+    <div id="result" class="alert alert-info mt-4 text-center" style="display:none;"></div>
+  </div>
+
+  <script>
+    const questions = [
+      {q:"Python файлдарының кеңейтілімі қандай?", o:[".py",".java",".exe",".txt"], a:0},
+      {q:"Python-да тізім (list) құру үшін қандай жақша қолданылады?", o:["()", "[]", "{}", "<>"], a:1},
+      {q:"print(2**3) нәтижесі қандай?", o:["6","8","9","23"], a:1},
+      {q:"Айнымалы атауларында қолдануға болмайтын символ?", o:["әріп","сан","астын сызу (_)","бос орын"], a:3},
+      {q:"input() функциясының қызметі?", o:["Экранға шығару","Дерек енгізу","Файл ашу","Шарт тексеру"], a:1},
+      {q:"len('Python') нәтижесі?", o:["5","6","7","0"], a:1},
+      {q:"for i in range(3): print(i) нәтижесі?", o:["1 2 3","0 1 2","0 1 2 3","Қате"], a:1},
+      {q:"Тізімнен соңғы элементті өшіру әдісі?", o:["remove()","pop()","del","clear()"], a:1},
+      {q:"Python-да логикалық мәндер?", o:["True/False","Yes/No","0/1","Right/Wrong"], a:0},
+      {q:"if шартында дұрыс блок қандай?", o:["endif","fi","else","elif"], a:3},
+      {q:"while циклінің қызметі?", o:["Бір рет орындайды","Шарт дұрыс болғанша қайталайды","Функция жасайды","Файл жазады"], a:1},
+      {q:"dict құрылымы не үшін қолданылады?", o:["Реттік сақтау","Кілт–мән жұбы","Сандарды сақтау","Тек мәтін"], a:1},
+      {q:"Python тілінде комментарий белгісі?", o:["//","&lt;!--","--","#"], a:3},
+      {q:"Функция құру үшін қандай кілт сөз қолданылады?", o:["func","def","function","lambda"], a:1},
+      {q:"break не үшін керек?", o:["Циклды тоқтату","Кодты бөлу","Жолды бөлу","Айнымалы құру"], a:0},
+      {q:"True and False нәтижесі?", o:["True","False","None","Қате"], a:1},
+      {q:"open('file.txt','w') не істейді?", o:["Файлды оқиды","Файлды жазады","Файлды өшіреді","Файлды атын өзгертеді"], a:1},
+      {q:"list(range(5)) нәтижесі?", o:["[0,1,2,3,4]","[1,2,3,4,5]","[0..5]","Қате"], a:0},
+      {q:"Python-дағы try/except не үшін?", o:["Функция жасау","Қате өңдеу","Айнымалы сақтау","Модуль қосу"], a:1},
+      {q:"bool(0) мәні қандай?", o:["True","False","None","0"], a:1}
+    ];
+
+    // Сұрақтарды араластыру
+    function shuffle(array) {
+      return array.sort(() => Math.random() - 0.5);
+    }
+
+    const quizContainer = document.getElementById("quiz-container");
+    const quizQuestions = shuffle([...questions]);
+
+    quizQuestions.forEach((item, index) => {
+      const card = document.createElement("div");
+      card.className = "card quiz-card p-3";
+      card.innerHTML = `
+        <div class="question"> ${index+1}. ${item.q} </div>
+        ${item.o.map((opt,i)=>`
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q${index}" value="${i}">
+            <label class="form-check-label">${opt}</label>
+          </div>`).join("")}
+      `;
+      quizContainer.appendChild(card);
+    });
+
+    function submitQuiz() {
+      let score = 0;
+      quizQuestions.forEach((item,index)=>{
+        const selected = document.querySelector(`input[name="q${index}"]:checked`);
+        if(selected && parseInt(selected.value) === item.a){
+          score++;
+        }
+      });
+      const percent = Math.round((score/quizQuestions.length)*100);
+      document.getElementById("result").style.display="block";
+      document.getElementById("result").innerText =
+        `Сіз ${quizQuestions.length}-ден ${score} дұрыс жауап бердіңіз. (${percent}%)`;
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
